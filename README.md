@@ -1,12 +1,78 @@
-# React + Vite
+# Data Engineering Career Transition Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A comprehensive interactive website to track your journey from Senior Data Analyst to World-Class Data Engineer.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Dashboard** with progress tracking and data visualization
+- **Learning Roadmap** with phase-based technical skills and interactive checklists
+- **Skills Assessment** with prioritized development areas
+- **Project Plan** with 15 practical projects aligned with learning phases
+- **Career Progression** milestones from Junior to Distinguished Engineer
+- **Resources** section with curated learning materials
+- **Progress Tracking** with local storage persistence
+- **Export/Import** functionality to backup your progress data
+- **Responsive Design** for mobile and desktop viewing
 
-## Expanding the ESLint configuration
+## Technology Stack
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 18
+- Vite
+- React Router
+- TailwindCSS
+- React Markdown
+- React Icons
+- Local Storage for data persistence
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 16+ and npm
+
+### Installation
+
+1. Clone the repository
+   ```
+   git clone https://github.com/johnsquared7/data-engineering-career-website.git
+   cd data-engineering-career-website
+   ```
+
+2. Install dependencies
+   ```
+   npm install
+   ```
+
+3. Start the development server
+   ```
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+## Building for Production
+
+```
+npm run build
+```
+
+The built files will be in the `dist` directory.
+
+## Project Structure
+
+- `src/components/` - Reusable UI components
+- `src/contexts/` - React context providers
+- `src/pages/` - Main application pages
+- `src/data/` - Markdown content files
+- `src/utils/` - Utility functions
+- `src/hooks/` - Custom React hooks
+- `src/assets/` - Static assets
+
+## License
+
+MIT
+
+## Acknowledgments
+
+- Created with Manus AI
+- Based on comprehensive data engineering career transition planning
