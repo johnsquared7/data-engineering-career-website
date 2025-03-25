@@ -42,7 +42,7 @@ const LearningRoadmap: React.FC = () => {
   useEffect(() => {
     const fetchContent = async (): Promise<void> => {
       try {
-        const response = await fetch('/src/data/technical_learning_roadmap.md');
+        const response = await fetch('/data/technical_learning_roadmap.md');
         const text = await response.text();
         setContent(text);
         setLoading(false);

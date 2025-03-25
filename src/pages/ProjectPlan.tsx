@@ -42,7 +42,7 @@ const ProjectPlan: React.FC = () => {
   useEffect(() => {
     const fetchContent = async (): Promise<void> => {
       try {
-        const response = await fetch('/src/data/practical_project_plan.md');
+        const response = await fetch('/data/practical_project_plan.md');
         const text = await response.text();
         setContent(text);
         setLoading(false);

@@ -46,7 +46,7 @@ const CareerProgression: React.FC = () => {
   useEffect(() => {
     const fetchContent = async (): Promise<void> => {
       try {
-        const response = await fetch('/src/data/career_progression_milestones.md');
+        const response = await fetch('/data/career_progression_milestones.md');
         const text = await response.text();
         setContent(text);
         setLoading(false);

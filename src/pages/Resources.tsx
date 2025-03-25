@@ -20,8 +20,7 @@ const Resources: React.FC = () => {
   useEffect(() => {
     const fetchContent = async (): Promise<void> => {
       try {
-        // Using comprehensive_transition_plan.md for resources section
-        const response = await fetch('/src/data/comprehensive_transition_plan.md');
+        const response = await fetch('/data/comprehensive_transition_plan.md');
         const text = await response.text();
         setContent(text);
         setLoading(false);

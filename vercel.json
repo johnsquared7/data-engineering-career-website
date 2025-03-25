@@ -9,26 +9,6 @@
       "destination": "/favicon.ico"
     },
     {
-      "source": "/learning-roadmap",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/skills-assessment",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/project-plan",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/career-progression",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/resources",
-      "destination": "/index.html"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
@@ -46,6 +26,5 @@
   ],
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "vite",
-  "installCommand": "npm install"
+  "framework": "vite"
 } 
