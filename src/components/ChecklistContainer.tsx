@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useChecklist } from '../contexts/ChecklistContext';
 
-const ChecklistContainer = ({ title, children, itemIds }) => {
+interface ChecklistContainerProps {
+  title: string;
+  children: React.ReactNode;
+  itemIds: string[];
+}
+
+const ChecklistContainer: React.FC<ChecklistContainerProps> = ({ title, children, itemIds }) => {
   const { calculateProgress, resetItems } = useChecklist();
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState<number>(0);
   
   useEffect(() => {
     if (itemIds && itemIds.length > 0) {
@@ -11,7 +17,7 @@ const ChecklistContainer = ({ title, children, itemIds }) => {
     }
   }, [calculateProgress, itemIds]);
   
-  const handleReset = () => {
+  const handleReset = (): void => {
     if (window.confirm('Are you sure you want to reset all items in this checklist?')) {
       resetItems(itemIds);
     }
@@ -48,4 +54,4 @@ const ChecklistContainer = ({ title, children, itemIds }) => {
   );
 };
 
-export default ChecklistContainer;
+export default ChecklistContainer; 

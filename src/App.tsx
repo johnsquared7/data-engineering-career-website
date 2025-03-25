@@ -10,7 +10,7 @@ import CareerProgression from './pages/CareerProgression';
 import Resources from './pages/Resources';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
   return (
     <ChecklistProvider>
       <Router>
@@ -27,6 +27,6 @@ function App() {
       </Router>
     </ChecklistProvider>
   );
-}
+};
 
-export default App;
+export default App; 

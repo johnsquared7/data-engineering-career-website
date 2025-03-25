@@ -1,6 +1,12 @@
 import React from 'react';
 
-const ChecklistGroup = ({ title, children, progress }) => {
+interface ChecklistGroupProps {
+  title: string;
+  children: React.ReactNode;
+  progress?: number;
+}
+
+const ChecklistGroup: React.FC<ChecklistGroupProps> = ({ title, children, progress }) => {
   return (
     <div className="mb-6 bg-white rounded-lg shadow-sm p-4 border border-gray-200">
       <div className="flex justify-between items-center mb-3">
@@ -28,4 +34,4 @@ const ChecklistGroup = ({ title, children, progress }) => {
   );
 };
 
-export default ChecklistGroup;
+export default ChecklistGroup; 

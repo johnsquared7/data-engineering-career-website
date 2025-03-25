@@ -1,13 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, JSX } from 'react';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 import { FaBook, FaUsers, FaTools, FaGraduationCap, FaLaptopCode } from 'react-icons/fa';
 
-const Resources = () => {
-  const [content, setContent] = useState('');
-  const [loading, setLoading] = useState(true);
+interface ResourceItem {
+  name: string;
+  url: string;
+}
+
+interface ResourceCategory {
+  title: string;
+  icon: JSX.Element;
+  items: ResourceItem[];
+}
+
+const Resources: React.FC = () => {
+  const [content, setContent] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const fetchContent = async () => {
+    const fetchContent = async (): Promise<void> => {
       try {
         // Using comprehensive_transition_plan.md for resources section
         const response = await fetch('/src/data/comprehensive_transition_plan.md');
@@ -23,7 +34,7 @@ const Resources = () => {
     fetchContent();
   }, []);
 
-  const resourceCategories = [
+  const resourceCategories: ResourceCategory[] = [
     {
       title: "Learning Resources",
       icon: <FaGraduationCap className="h-8 w-8 text-blue-500" />,
@@ -148,4 +159,4 @@ const Resources = () => {
   );
 };
 
-export default Resources;
+export default Resources; 

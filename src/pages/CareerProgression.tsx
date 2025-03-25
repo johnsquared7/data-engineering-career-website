@@ -4,47 +4,47 @@ import ChecklistGroup from '../components/ChecklistGroup';
 import ChecklistItem from '../components/ChecklistItem';
 import { useChecklist } from '../contexts/ChecklistContext';
 
-const CareerProgression = () => {
-  const [content, setContent] = useState('');
+const CareerProgression: React.FC = () => {
+  const [content, setContent] = useState<string>('');
   const { isItemChecked, toggleItem, calculateProgress } = useChecklist();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   // Junior Data Engineer milestones
-  const juniorItems = [
+  const juniorItems: string[] = [
     'junior_python_training', 'junior_first_pipeline', 'junior_version_control',
     'junior_github_portfolio', 'junior_join_communities', 'junior_update_resume'
   ];
 
   // Data Engineer milestones
-  const midLevelItems = [
+  const midLevelItems: string[] = [
     'mid_cloud_solution', 'mid_spark_job', 'mid_data_warehouse',
     'mid_streaming_pipeline', 'mid_cloud_certification', 'mid_opensource_contribution',
     'mid_technical_blog'
   ];
 
   // Senior Data Engineer milestones
-  const seniorItems = [
+  const seniorItems: string[] = [
     'senior_end_to_end_architecture', 'senior_data_quality', 'senior_orchestration',
     'senior_performance_optimization', 'senior_mentoring', 'senior_presentation',
     'senior_advanced_certification'
   ];
 
   // Principal Data Engineer milestones
-  const principalItems = [
+  const principalItems: string[] = [
     'principal_data_platform', 'principal_best_practices', 'principal_ml_integration',
     'principal_self_service', 'principal_content_publishing', 'principal_conference_speaking',
     'principal_team_leading'
   ];
 
   // Distinguished Data Engineer milestones
-  const distinguishedItems = [
+  const distinguishedItems: string[] = [
     'distinguished_innovative_solution', 'distinguished_opensource_framework',
     'distinguished_thought_leadership', 'distinguished_data_strategy',
     'distinguished_mentoring_engineers', 'distinguished_industry_recognition'
   ];
 
   useEffect(() => {
-    const fetchContent = async () => {
+    const fetchContent = async (): Promise<void> => {
       try {
         const response = await fetch('/src/data/career_progression_milestones.md');
         const text = await response.text();
@@ -252,13 +252,13 @@ const CareerProgression = () => {
             />
             <ChecklistItem 
               id="principal_conference_speaking" 
-              label="Spoke at major conference" 
+              label="Spoke at major industry conferences" 
               isChecked={isItemChecked('principal_conference_speaking')} 
               onChange={() => toggleItem('principal_conference_speaking')}
             />
             <ChecklistItem 
               id="principal_team_leading" 
-              label="Led data engineering team or initiative" 
+              label="Led data engineering team" 
               isChecked={isItemChecked('principal_team_leading')} 
               onChange={() => toggleItem('principal_team_leading')}
             />
@@ -270,37 +270,37 @@ const CareerProgression = () => {
           >
             <ChecklistItem 
               id="distinguished_innovative_solution" 
-              label="Created innovative data engineering solution" 
+              label="Created innovative data solution" 
               isChecked={isItemChecked('distinguished_innovative_solution')} 
               onChange={() => toggleItem('distinguished_innovative_solution')}
             />
             <ChecklistItem 
               id="distinguished_opensource_framework" 
-              label="Contributed to open-source framework or tool" 
+              label="Developed open-source framework" 
               isChecked={isItemChecked('distinguished_opensource_framework')} 
               onChange={() => toggleItem('distinguished_opensource_framework')}
             />
             <ChecklistItem 
               id="distinguished_thought_leadership" 
-              label="Established thought leadership in specific domain" 
+              label="Established thought leadership" 
               isChecked={isItemChecked('distinguished_thought_leadership')} 
               onChange={() => toggleItem('distinguished_thought_leadership')}
             />
             <ChecklistItem 
               id="distinguished_data_strategy" 
-              label="Influenced data strategy at organizational level" 
+              label="Led data strategy initiatives" 
               isChecked={isItemChecked('distinguished_data_strategy')} 
               onChange={() => toggleItem('distinguished_data_strategy')}
             />
             <ChecklistItem 
               id="distinguished_mentoring_engineers" 
-              label="Mentored multiple successful data engineers" 
+              label="Mentored multiple senior engineers" 
               isChecked={isItemChecked('distinguished_mentoring_engineers')} 
               onChange={() => toggleItem('distinguished_mentoring_engineers')}
             />
             <ChecklistItem 
               id="distinguished_industry_recognition" 
-              label="Recognized as industry expert" 
+              label="Received industry recognition" 
               isChecked={isItemChecked('distinguished_industry_recognition')} 
               onChange={() => toggleItem('distinguished_industry_recognition')}
             />
@@ -311,4 +311,4 @@ const CareerProgression = () => {
   );
 };
 
-export default CareerProgression;
+export default CareerProgression; 

@@ -1,6 +1,14 @@
 import React from 'react';
 
-const ChecklistItem = ({ id, label, isChecked, onChange, children }) => {
+interface ChecklistItemProps {
+  id: string;
+  label: string;
+  isChecked: boolean;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  children?: React.ReactNode;
+}
+
+const ChecklistItem: React.FC<ChecklistItemProps> = ({ id, label, isChecked, onChange, children }) => {
   return (
     <div className="mb-2">
       <div className="flex items-start">
@@ -20,4 +28,4 @@ const ChecklistItem = ({ id, label, isChecked, onChange, children }) => {
   );
 };
 
-export default ChecklistItem;
+export default ChecklistItem; 

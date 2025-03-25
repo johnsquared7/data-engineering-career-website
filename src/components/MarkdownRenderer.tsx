@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-const MarkdownRenderer = ({ content }) => {
+interface MarkdownRendererProps {
+  content: string;
+}
+
+const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
   return (
     <div className="prose prose-blue max-w-none">
       <ReactMarkdown>{content}</ReactMarkdown>
@@ -9,4 +13,4 @@ const MarkdownRenderer = ({ content }) => {
   );
 };
 
-export default MarkdownRenderer;
+export default MarkdownRenderer; 

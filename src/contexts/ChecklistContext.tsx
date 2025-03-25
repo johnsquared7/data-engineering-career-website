@@ -1,11 +1,26 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
+import React, { createContext, useState, useEffect, useContext, ReactNode } from 'react';
 
-// Create context
-const ChecklistContext = createContext();
+interface ChecklistState {
+  [key: string]: boolean;
+}
+
+interface ChecklistContextType {
+  isItemChecked: (id: string) => boolean;
+  toggleItem: (id: string) => void;
+  calculateProgress: (itemIds: string[]) => number;
+  resetItems: (itemIds?: string[] | null) => void;
+}
+
+interface ChecklistProviderProps {
+  children: ReactNode;
+}
+
+// Create context with a default value
+const ChecklistContext = createContext<ChecklistContextType | undefined>(undefined);
 
 // Provider component
-export const ChecklistProvider = ({ children }) => {
-  const [checklistState, setChecklistState] = useState({});
+export const ChecklistProvider: React.FC<ChecklistProviderProps> = ({ children }) => {
+  const [checklistState, setChecklistState] = useState<ChecklistState>({});
 
   // Load saved state from localStorage on initial render
   useEffect(() => {
@@ -27,7 +42,7 @@ export const ChecklistProvider = ({ children }) => {
   }, [checklistState]);
 
   // Toggle item checked state
-  const toggleItem = (id) => {
+  const toggleItem = (id: string): void => {
     setChecklistState(prevState => ({
       ...prevState,
       [id]: !prevState[id]
@@ -35,12 +50,12 @@ export const ChecklistProvider = ({ children }) => {
   };
 
   // Check if an item is checked
-  const isItemChecked = (id) => {
+  const isItemChecked = (id: string): boolean => {
     return !!checklistState[id];
   };
 
   // Calculate progress for a group of items
-  const calculateProgress = (itemIds) => {
+  const calculateProgress = (itemIds: string[]): number => {
     if (!itemIds || itemIds.length === 0) return 0;
     
     const checkedCount = itemIds.filter(id => isItemChecked(id)).length;
@@ -48,7 +63,7 @@ export const ChecklistProvider = ({ children }) => {
   };
 
   // Reset all items or a specific group
-  const resetItems = (itemIds = null) => {
+  const resetItems = (itemIds: string[] | null = null): void => {
     if (itemIds) {
       const newState = { ...checklistState };
       itemIds.forEach(id => {
@@ -73,10 +88,10 @@ export const ChecklistProvider = ({ children }) => {
 };
 
 // Custom hook to use the checklist context
-export const useChecklist = () => {
+export const useChecklist = (): ChecklistContextType => {
   const context = useContext(ChecklistContext);
   if (!context) {
     throw new Error('useChecklist must be used within a ChecklistProvider');
   }
   return context;
-};
+}; 

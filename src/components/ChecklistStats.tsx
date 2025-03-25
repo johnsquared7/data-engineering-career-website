@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
 import { useChecklist } from '../contexts/ChecklistContext';
 
-const ChecklistStats = () => {
+interface Category {
+  name: string;
+  items: string[];
+}
+
+interface CategoryStat {
+  name: string;
+  completed: number;
+  total: number;
+  percentage: number;
+}
+
+const ChecklistStats: React.FC = () => {
   const { isItemChecked } = useChecklist();
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState<boolean>(false);
   
   // Define all checklist categories and their items
-  const categories = [
+  const categories: Category[] = [
     {
       name: 'Learning Roadmap',
       items: [
@@ -78,7 +90,7 @@ const ChecklistStats = () => {
   const overallPercentage = totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0;
   
   // Calculate category statistics
-  const categoryStats = categories.map(category => {
+  const categoryStats: CategoryStat[] = categories.map(category => {
     const total = category.items.length;
     const completed = category.items.filter(item => isItemChecked(item)).length;
     const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
@@ -138,4 +150,4 @@ const ChecklistStats = () => {
   );
 };
 
-export default ChecklistStats;
+export default ChecklistStats; 

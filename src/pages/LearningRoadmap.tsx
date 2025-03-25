@@ -4,43 +4,43 @@ import ChecklistGroup from '../components/ChecklistGroup';
 import ChecklistItem from '../components/ChecklistItem';
 import { useChecklist } from '../contexts/ChecklistContext';
 
-const LearningRoadmap = () => {
-  const [content, setContent] = useState('');
+const LearningRoadmap: React.FC = () => {
+  const [content, setContent] = useState<string>('');
   const { isItemChecked, toggleItem, calculateProgress } = useChecklist();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   // Phase 1 checklist items
-  const phase1Items = [
+  const phase1Items: string[] = [
     'python_basics', 'python_data_structures', 'pandas_numpy', 
     'sql_advanced', 'sql_performance', 'etl_concepts', 'git_basics'
   ];
 
   // Phase 2 checklist items
-  const phase2Items = [
+  const phase2Items: string[] = [
     'cloud_fundamentals', 'cloud_storage', 'spark_basics', 
     'spark_sql', 'data_streaming'
   ];
 
   // Phase 3 checklist items
-  const phase3Items = [
+  const phase3Items: string[] = [
     'data_warehouse_modeling', 'nosql_databases', 'airflow', 
     'infrastructure_as_code'
   ];
 
   // Phase 4 checklist items
-  const phase4Items = [
+  const phase4Items: string[] = [
     'cloud_data_engineering', 'real_time_processing', 
     'dataops', 'data_governance'
   ];
 
   // Phase 5 checklist items
-  const phase5Items = [
+  const phase5Items: string[] = [
     'ml_engineering', 'generative_ai', 'data_mesh', 
     'event_driven_architecture'
   ];
 
   useEffect(() => {
-    const fetchContent = async () => {
+    const fetchContent = async (): Promise<void> => {
       try {
         const response = await fetch('/src/data/technical_learning_roadmap.md');
         const text = await response.text();
@@ -253,4 +253,4 @@ const LearningRoadmap = () => {
   );
 };
 
-export default LearningRoadmap;
+export default LearningRoadmap; 

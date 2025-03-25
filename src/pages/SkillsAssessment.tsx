@@ -4,31 +4,31 @@ import ChecklistGroup from '../components/ChecklistGroup';
 import ChecklistItem from '../components/ChecklistItem';
 import { useChecklist } from '../contexts/ChecklistContext';
 
-const SkillsAssessment = () => {
-  const [content, setContent] = useState('');
+const SkillsAssessment: React.FC = () => {
+  const [content, setContent] = useState<string>('');
   const { isItemChecked, toggleItem, calculateProgress } = useChecklist();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   // High priority skills
-  const highPriorityItems = [
+  const highPriorityItems: string[] = [
     'python_skills', 'cloud_computing', 'big_data_tech', 
     'modern_etl', 'data_warehousing'
   ];
 
   // Medium priority skills
-  const mediumPriorityItems = [
+  const mediumPriorityItems: string[] = [
     'nosql_databases', 'data_ingestion', 'real_time_processing', 
     'cloud_data_platforms', 'data_modeling'
   ];
 
   // Lower priority skills
-  const lowerPriorityItems = [
+  const lowerPriorityItems: string[] = [
     'ml_integration', 'generative_ai', 'data_governance', 
     'advanced_visualization', 'container_tech'
   ];
 
   useEffect(() => {
-    const fetchContent = async () => {
+    const fetchContent = async (): Promise<void> => {
       try {
         const response = await fetch('/src/data/skills_assessment.md');
         const text = await response.text();
@@ -175,4 +175,4 @@ const SkillsAssessment = () => {
   );
 };
 
-export default SkillsAssessment;
+export default SkillsAssessment; 

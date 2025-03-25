@@ -1,6 +1,13 @@
 import React from 'react';
 
-const ProgressBar = ({ value, max, label, className }) => {
+interface ProgressBarProps {
+  value: number;
+  max: number;
+  label?: string;
+  className?: string;
+}
+
+const ProgressBar: React.FC<ProgressBarProps> = ({ value, max, label, className }) => {
   const percentage = Math.min(100, Math.max(0, (value / max) * 100));
   
   return (
@@ -21,4 +28,4 @@ const ProgressBar = ({ value, max, label, className }) => {
   );
 };
 
-export default ProgressBar;
+export default ProgressBar; 

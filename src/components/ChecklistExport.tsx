@@ -1,10 +1,10 @@
 import React from 'react';
 import { useChecklist } from '../contexts/ChecklistContext';
 
-const ChecklistExport = () => {
+const ChecklistExport: React.FC = () => {
   const { isItemChecked } = useChecklist();
   
-  const handleExport = () => {
+  const handleExport = (): void => {
     // Get all checklist data from localStorage
     const checklistData = localStorage.getItem('checklistState');
     
@@ -29,19 +29,20 @@ const ChecklistExport = () => {
     URL.revokeObjectURL(url);
   };
   
-  const handleImport = () => {
+  const handleImport = (): void => {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = '.json';
     
-    input.onchange = (e) => {
-      const file = e.target.files[0];
+    input.onchange = (e: Event) => {
+      const target = e.target as HTMLInputElement;
+      const file = target.files?.[0];
       if (!file) return;
       
       const reader = new FileReader();
-      reader.onload = (event) => {
+      reader.onload = (event: ProgressEvent<FileReader>) => {
         try {
-          const data = event.target.result;
+          const data = event.target?.result as string;
           // Validate that it's proper JSON
           JSON.parse(data);
           
@@ -84,4 +85,4 @@ const ChecklistExport = () => {
   );
 };
 
-export default ChecklistExport;
+export default ChecklistExport; 

@@ -4,43 +4,43 @@ import ChecklistGroup from '../components/ChecklistGroup';
 import ChecklistItem from '../components/ChecklistItem';
 import { useChecklist } from '../contexts/ChecklistContext';
 
-const ProjectPlan = () => {
-  const [content, setContent] = useState('');
+const ProjectPlan: React.FC = () => {
+  const [content, setContent] = useState<string>('');
   const { isItemChecked, toggleItem, calculateProgress } = useChecklist();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   // Phase 1 projects
-  const phase1Items = [
+  const phase1Items: string[] = [
     'project1_data_analysis_pipeline', 'project2_sql_python_integration', 
     'project3_version_control'
   ];
 
   // Phase 2 projects
-  const phase2Items = [
+  const phase2Items: string[] = [
     'project4_cloud_data_lake', 'project5_spark_processing', 
     'project6_streaming_pipeline'
   ];
 
   // Phase 3 projects
-  const phase3Items = [
+  const phase3Items: string[] = [
     'project7_data_warehouse', 'project8_nosql_integration', 
     'project9_airflow_orchestration'
   ];
 
   // Phase 4 projects
-  const phase4Items = [
+  const phase4Items: string[] = [
     'project10_cloud_native_platform', 'project11_real_time_analytics', 
     'project12_dataops'
   ];
 
   // Phase 5 projects
-  const phase5Items = [
+  const phase5Items: string[] = [
     'project13_ml_feature_store', 'project14_llm_pipeline', 
     'project15_data_mesh'
   ];
 
   useEffect(() => {
-    const fetchContent = async () => {
+    const fetchContent = async (): Promise<void> => {
       try {
         const response = await fetch('/src/data/practical_project_plan.md');
         const text = await response.text();
@@ -199,4 +199,4 @@ const ProjectPlan = () => {
   );
 };
 
-export default ProjectPlan;
+export default ProjectPlan; 
