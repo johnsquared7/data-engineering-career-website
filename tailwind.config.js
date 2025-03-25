@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -8,6 +8,18 @@ module.exports = {
     extend: {
       colors: {
         primary: {
+          50: '#f0fdf4',
+          100: '#dcfce7',
+          200: '#bbf7d0',
+          300: '#86efac',
+          400: '#4ade80',
+          500: '#22c55e',
+          600: '#16a34a',
+          700: '#15803d',
+          800: '#166534',
+          900: '#14532d',
+        },
+        secondary: {
           50: '#f0f9ff',
           100: '#e0f2fe',
           200: '#bae6fd',
@@ -18,18 +30,6 @@ module.exports = {
           700: '#0369a1',
           800: '#075985',
           900: '#0c4a6e',
-        },
-        secondary: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
         },
         neutral: {
           50: '#fafafa',
@@ -85,11 +85,13 @@ module.exports = {
         mono: ['Fira Code', 'monospace'],
       },
       boxShadow: {
-        'soft': '0 2px 4px rgba(0, 0, 0, 0.05)',
-        'hover': '0 4px 6px rgba(0, 0, 0, 0.1)',
+        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+        'hover': '0 4px 20px -3px rgba(0, 0, 0, 0.1), 0 15px 25px -2px rgba(0, 0, 0, 0.06)',
       },
       borderRadius: {
-        '3xl': '1.5rem',
+        'xl': '1rem',
+        '2xl': '1.5rem',
+        '3xl': '2rem',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
@@ -98,7 +100,7 @@ module.exports = {
         'slide-left': 'slideLeft 0.5s ease-out',
         'slide-right': 'slideRight 0.5s ease-out',
         'scale': 'scale 0.3s ease-in-out',
-        'bounce': 'bounce 1s infinite',
+        'bounce-slow': 'bounce 3s infinite',
       },
       keyframes: {
         fadeIn: {
@@ -126,8 +128,8 @@ module.exports = {
           '100%': { transform: 'scale(1)', opacity: '1' },
         },
         bounce: {
-          '0%, 100%': { transform: 'translateY(-25%)', animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)' },
-          '50%': { transform: 'translateY(0)', animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)' },
+          '0%, 100%': { transform: 'translateY(-5%)' },
+          '50%': { transform: 'translateY(0)' },
         },
       },
       spacing: {
